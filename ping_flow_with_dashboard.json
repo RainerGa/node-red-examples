@@ -1,0 +1,92 @@
+[
+    {
+        "id": "fab6b016add96cc7",
+        "type": "tab",
+        "label": "Ping Flow",
+        "disabled": false,
+        "info": "Ping Target and display Roundtriptime in Dashboard\n\nPing does only works with IPV4 Adresses! (03.11.2021)",
+        "env": []
+    },
+    {
+        "id": "992497a1ee93858b",
+        "type": "ping",
+        "z": "fab6b016add96cc7",
+        "protocol": "IPv4",
+        "mode": "timed",
+        "name": "",
+        "host": "heise.de",
+        "timer": "5",
+        "inputs": 0,
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "74a3e48c8028ccae",
+                "4c78679b772c71e7"
+            ]
+        ]
+    },
+    {
+        "id": "74a3e48c8028ccae",
+        "type": "ui_gauge",
+        "z": "fab6b016add96cc7",
+        "name": "",
+        "group": "e2a9abf2dc1a3d87",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Roundtriptime",
+        "label": "ms",
+        "format": "{{value| number:1}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 530,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "4c78679b772c71e7",
+        "type": "debug",
+        "z": "fab6b016add96cc7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "e2a9abf2dc1a3d87",
+        "type": "ui_group",
+        "name": "Ping Check",
+        "tab": "24b3007c76e56130",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "24b3007c76e56130",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
