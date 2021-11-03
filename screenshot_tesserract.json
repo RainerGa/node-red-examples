@@ -1,0 +1,203 @@
+[
+    {
+        "id": "583ee9353f5793ae",
+        "type": "tab",
+        "label": "Robot Process Automation (RPA) simple Example",
+        "disabled": false,
+        "info": "Find Text on Screen (with OCR) an click left mouse button.",
+        "env": []
+    },
+    {
+        "id": "9fc31ca1a42ed870",
+        "type": "inject",
+        "z": "583ee9353f5793ae",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "filename",
+                "v": "screenshot3.png",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "bf2cbc338d46fd5f"
+            ]
+        ]
+    },
+    {
+        "id": "b023b1044aae6901",
+        "type": "screenshot-node",
+        "z": "583ee9353f5793ae",
+        "name": "",
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "824552c32c3cc0bf",
+                "2375ef06e8b13910"
+            ]
+        ]
+    },
+    {
+        "id": "8eaecc8d3d9c1de5",
+        "type": "tesseract",
+        "z": "583ee9353f5793ae",
+        "name": "",
+        "language": "deu",
+        "x": 700,
+        "y": 300,
+        "wires": [
+            [
+                "0363511ff634a75b"
+            ]
+        ]
+    },
+    {
+        "id": "0363511ff634a75b",
+        "type": "debug",
+        "z": "583ee9353f5793ae",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "824552c32c3cc0bf",
+        "type": "image",
+        "z": "583ee9353f5793ae",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "thumbnail": false,
+        "active": true,
+        "pass": true,
+        "outputs": 1,
+        "x": 240,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2375ef06e8b13910",
+        "type": "jimp-image",
+        "z": "583ee9353f5793ae",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "filename",
+        "parameter1Type": "msg",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "write",
+        "selectedJimpFunction": {
+            "name": "write",
+            "fn": "write",
+            "description": "Write to file. NOTE: You can specify an alternative file extension type to change the type. Currently support types are jpg, png, bmp.",
+            "parameters": [
+                {
+                    "name": "filename",
+                    "type": "str",
+                    "required": true,
+                    "hint": "Name of the file",
+                    "defaultType": "str"
+                }
+            ]
+        },
+        "x": 470,
+        "y": 200,
+        "wires": [
+            [
+                "03a4f9c87fd33a0c"
+            ]
+        ]
+    },
+    {
+        "id": "03a4f9c87fd33a0c",
+        "type": "change",
+        "z": "583ee9353f5793ae",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "filename",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "8eaecc8d3d9c1de5"
+            ]
+        ]
+    },
+    {
+        "id": "bf2cbc338d46fd5f",
+        "type": "delay",
+        "z": "583ee9353f5793ae",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "b023b1044aae6901"
+            ]
+        ]
+    }
+]
