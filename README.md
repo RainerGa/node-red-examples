@@ -1,5 +1,7 @@
 # node-red-examples
-node-red Examples make first steps easier
+Look under "import". The examples supplied by node-red can be found there!</br>
+I created the examples in this repository because I had problems with a number of packages / functions. </br>
+I hope this will help you :-)
 
 * ping_flow_with_dashboard</br>
     Ping Target, show Result in Dashboard
