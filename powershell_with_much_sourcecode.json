@@ -1,0 +1,107 @@
+[
+    {
+        "id": "520229ea2065d6e7",
+        "type": "tab",
+        "label": "Powershell with much scripting code",
+        "disabled": false,
+        "info": "Dont forget to update\n\nhttps://github.com/tobiassoltermann/node-red-contrib-powershell/blob/master/powershell.js\n\nto the currect version in your filesystem! Otherwise this does not work!\n\n**In the \"Template\" add always one blank line after your sourcecode!**",
+        "env": []
+    },
+    {
+        "id": "831cb2b52fed0746",
+        "type": "powershell",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "x": 520,
+        "y": 120,
+        "wires": [
+            [
+                "bd77a4f8b0cd8017"
+            ],
+            [
+                "d62079a630194ac9"
+            ]
+        ]
+    },
+    {
+        "id": "06ec1e9dea237ba4",
+        "type": "inject",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "34b6af3ec2dce06f"
+            ]
+        ]
+    },
+    {
+        "id": "bd77a4f8b0cd8017",
+        "type": "debug",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d62079a630194ac9",
+        "type": "debug",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "34b6af3ec2dce06f",
+        "type": "template",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Get-Item $HOME\\*.* | Foreach {\n$lastupdatetime=$_.LastWriteTime\n$nowtime = get-date\nif (($nowtime - $lastupdatetime).totalhours -le 24)\n{\nWrite-Host \"File modified within 24 hours \"$_.Name\n}\nelse\n{\nWrite-Host \"File modified before 26 hours\"\n}\n}\n",
+        "output": "str",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "831cb2b52fed0746"
+            ]
+        ]
+    }
+]
