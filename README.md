@@ -15,3 +15,12 @@ I hope this will help you :-)
 
 * powershell_with_much_sourcecode</br>
     Execute Scripts which are more than "One-Liners"
+
+
+# HINTS
+If an Package is newer than the installed package you can do the following (hint from node-red Forum):
+
+Install direct from github by going into your .node-red folder (that is important) and running</br>
+npm install [Packagename] 
+
+Example: npm install tobiassoltermann/node-red-contrib-powershell
