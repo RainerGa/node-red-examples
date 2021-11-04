@@ -1,0 +1,136 @@
+[
+    {
+        "id": "520229ea2065d6e7",
+        "type": "tab",
+        "label": "Powershell Ping With Dashboard",
+        "disabled": false,
+        "info": "Dont forget to update\n\nhttps://github.com/tobiassoltermann/node-red-contrib-powershell/blob/master/powershell.js\n\nto the currect version in your filesystem! Otherwise this does not work!",
+        "env": []
+    },
+    {
+        "id": "831cb2b52fed0746",
+        "type": "powershell",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "x": 520,
+        "y": 120,
+        "wires": [
+            [
+                "5ccde2bc2858164b",
+                "bd77a4f8b0cd8017"
+            ],
+            [
+                "d62079a630194ac9"
+            ]
+        ]
+    },
+    {
+        "id": "06ec1e9dea237ba4",
+        "type": "inject",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Test-Connection -count 1 www.google.de | select-object -expandproperty responsetime",
+        "payloadType": "str",
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "831cb2b52fed0746"
+            ]
+        ]
+    },
+    {
+        "id": "5ccde2bc2858164b",
+        "type": "ui_gauge",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "group": "264ee665865d90f4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "ms",
+        "format": "{{value| number:1}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 780,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "bd77a4f8b0cd8017",
+        "type": "debug",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d62079a630194ac9",
+        "type": "debug",
+        "z": "520229ea2065d6e7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "264ee665865d90f4",
+        "type": "ui_group",
+        "name": "Powershell Ping",
+        "tab": "a8a96302edbecf3a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a8a96302edbecf3a",
+        "type": "ui_tab",
+        "name": "Powershell",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
