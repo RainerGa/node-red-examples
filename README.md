@@ -8,3 +8,7 @@ I hope this will help you :-)
     
 * screenshot_tesserract</br>
     Take Screenshot an analyse Text with Tesseract
+    
+* powershell_ping_with_dashboard
+    Ping Target over Powershell, show Result in Dashboard</br>
+    -> You need to manually update powershell.js, cause the installed package has not the newest version
