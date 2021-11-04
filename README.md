@@ -18,7 +18,7 @@ I hope this will help you :-)
 
 
 # HINTS
-If an Package is newer than the installed package you can do the following (hint from node-red Forum):
+If an Package is newer on github than the installed package from npm you can do the following to update manually (hint from node-red Forum):
 
 Install direct from github by going into your .node-red folder (that is important) and running</br>
 npm install [Packagename] 
